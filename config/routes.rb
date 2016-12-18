@@ -1,7 +1,42 @@
 Rails.application.routes.draw do
+  
+  
+
+ 
+  
+   # organisations
+  
+  
+  
+  
+  #places IMAGES ROUTES
+
+  
+  #ROOT ROUTE
+  
+  get 'about'=> 'about#index'
+  
+  #ROUT INDEX
+  
+  root 'tours#index'
+  
+  # RESOURCES ROUTES
+  
+  resources :categories
+  resources :guides
   devise_for :users
   resources :tours
-  root 'tours#index'
+  
+  resources :places do
+    
+    resources :photos
+   
+  
+end
+ 
+  resources :organisations
+  
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

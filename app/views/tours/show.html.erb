@@ -1,14 +1,33 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Tour name:</strong>
-  <%= @tour.tour_name %>
-</p>
+<div id="tour-show-left">
+    <p id="notice"><%= notice %></p>
+    
+    <h2><%= @tour.tour_name %></h2>
+    
+    <div class="tour-show-left">
+        <% if @tour.user == current_user %>
+            <%= link_to 'Edit', edit_tour_path(@tour), class: 'btn btn-primary' %> 
+            <%= link_to 'Back', tours_path , class: 'btn btn-primary'%>
+            <%= link_to 'Destroy', @tour, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+        <%end%>
+    
+        <%=image_tag('attractions/download.jpeg')%>
+    </div>
+</div>
+    
+  <div id="tour-show-right">
+   <table>
+    <h3>Tour Info</h3>
+    <ul>
+      <li><strong>Category:</strong> <%=@tour.tour_name%></li>
+      <li><strong>Description:</strong><%=@tour.tour_name%> </li>
+      <li><strong>Location:</strong> Windhoek,Namibia></li>
+     
+    </ul>
+     
+    <%=link_to "Tour attractions", places_path, class: 'btn btn-success', target: 'blank'%>
+  </table>
+  
+</div>
 
-<p>
-  <strong>Description:</strong>
-  <%= @tour.description %>
-</p>
-
-<%= link_to 'Edit', edit_tour_path(@tour) %> |
-<%= link_to 'Back', tours_path %>
+    

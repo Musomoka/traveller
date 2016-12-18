@@ -1,29 +1,34 @@
+
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Tours</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Tour name</th>
-      <th>Description</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @tours.each do |tour| %>
-      <tr>
-        <td><%= tour.tour_name %></td>
-        <td><%= tour.description %></td>
-        <td><%= link_to 'Show', tour %></td>
-        <td><%= link_to 'Edit', edit_tour_path(tour) %></td>
-        <td><%= link_to 'Destroy', tour, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<h1>Tours</h1>
+<div class= "row">
+<%= link_to 'New Tour', new_tour_path, class: 'btn btn-primary' %>
+</div>
 
 <br>
+    <div class= "row">
+       <div id = "tours-index">
+         <% @tours.each_slice(4) do |tour| %>
+      
+      <% tour.each do |tour| %>
+     
+        <div class="col-md-3 col-md-offset-1 col-sm-3 ">
+          <div class = "row">
+            <h3><%= tour.tour_name %></h3>
+            <%=image_tag('attractions/download.jpeg')%>
+            <p><%= truncate (tour.description) %></p>
+            <p><b><%= tour.description %></b></p>
+            <p></p>
+          </div>
+          
+            <div class = "row">
+              <p><%= link_to 'Show', tour, class: 'btn btn-primary' %></p>
+            </div>
+        </div>
+       <%end%>
+       <%end%>
+      </div>
+  
 
-<%= link_to 'New Tour', new_tour_path %>
+</div>

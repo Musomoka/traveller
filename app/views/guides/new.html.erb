@@ -1,0 +1,14 @@
+
+<div class="form-group">
+    
+<%= form_for @guide do |f| %>
+   
+    <%= f.label :name %>
+    <%= f.text_field :bio%>
+    
+    <%= f.submit 'Add', class: 'btn btn-success' %>
+     <%= link_to 'Cancel',@tour_path, class: 'btn btn-danger'%>
+<%end%>
+</div>
+    
+    

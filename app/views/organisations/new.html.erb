@@ -1,0 +1,14 @@
+
+<div class="form-group">
+    
+<%= form_for @organisation do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name%>
+
+
+    <%= f.submit 'Add', class: 'btn btn-success' %>
+     <%= link_to 'Cancel',@organisation_path, class: 'btn btn-danger'%>
+<%end%>
+</div>
+    
+    

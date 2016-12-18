@@ -1,0 +1,22 @@
+
+<h2>Attractions</h2>
+<div class= "row">
+    <table class="table table-striped">
+        <tr>
+            <th>Attraction Name</th>
+            <th>Location</th>
+            <th> Actions</th>
+        </tr>
+       
+        <% @places.each do |place| %>
+            <tr>
+                <td><%=place.name%></td>
+                <td><%=place.gprs%></td>
+                <td><%=link_to 'Show',  place_path(place)%>|<%=link_to 'Edit',edit_place_path(place)%> | <%=link_to "Delete",place_path(place),
+                    method: :delete, data: {confirm: 'Are You Sure?'}%></td>
+            </tr>
+        
+        <%end%>
+    </table>
+</div>
+</div>

@@ -1,0 +1,23 @@
+
+<h2>Place Images</h2>
+
+<table class="table table-striped">
+ <%=link_to 'Add Image', new_place_gallary_path,class: 'btn btn-default'%>
+    <tr>
+        <th>Picture</th>
+        <th>link</th>
+        <th>Actions</th>
+    </tr>
+   <%if @gallaries.nil?%>
+   <h3>No Images</h3>
+    <%else%>
+    <%=@gallaries.each do |gallary| %>
+                <tr>
+                    <td> <%=image_tag gallary.name.url(:thumb)%></td>
+                     <td><%=gallary.gprs%></td>
+                    <td><%=link_to 'Edit', edit_gallary_path(gallary.id)%> |  <%=link_to "Delete",place_gallary(gallary),
+                        method: :delete, data: {confirm: 'Are You Sure?'}%></td>
+                </tr>
+    <%end%>
+    <%end%>
+</table>

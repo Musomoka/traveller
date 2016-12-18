@@ -1,0 +1,26 @@
+
+<div id="gallary-show-left">
+    <p id="notice"><%= notice %></p>
+    
+    <h2><%= @gallary.name %></h2>
+    
+
+</div>
+    
+  <div id="gallary-show-right">
+   <table>
+    <h3>gallary Info</h3>
+    <ul>
+      <li><strong>Link:</strong> <%=@gallary.link%></li>
+      <li><strong>Name:</strong><%=@gallary.name%> </li>
+      
+     
+    </ul>
+     
+    <%=link_to "Photo", place_gallaries_path, class: 'btn btn-success', target: 'blank'%>
+    
+  </table>
+  
+</div>
+
+    

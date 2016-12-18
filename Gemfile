@@ -1,6 +1,17 @@
 source 'https://rubygems.org'
+# HIRB seciont
+gem 'bower-rails'
+gem 'pry'
+
 # devise section
 gem 'devise'
+
+# mysql gem
+
+ gem 'mysql2'
+
+#for paperclip, image uploading gem
+gem 'paperclip'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5'

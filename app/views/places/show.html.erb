@@ -1,0 +1,35 @@
+
+        <div id="place-show-left">
+            <p id="notice"><%= notice %></p>
+            <h2><%= @place.name %></h2>
+            
+          
+        
+          <div class="place-show-right">
+           <table>
+            <h3>place Info</h3>
+            
+            <%=link_to "Edit Info", edit_place_path, class: 'btn btn-success'%>
+            <%=link_to "View Pictures", place_photos_url(@place), class: 'btn btn-success'%>
+        
+        
+        
+          <div class="clear-fix">
+            <h4>place Info</h4>
+            
+          <p id="notice"><%= notice %></p>
+          
+          <p>
+            <strong>place name:</strong>
+            <%= @place.name %>
+          </p>
+          
+          <p>
+            <strong>Description:</strong>
+            <%= @place.gprs%>
+          </p>
+          </div>
+    </div>
+
+
+  

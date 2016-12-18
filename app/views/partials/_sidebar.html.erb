@@ -1,0 +1,24 @@
+<!--INFO SIDE BAR DISPLAY ON ABOUT PAGE -->
+<% if params[:controller] == 'about'%>
+<div class = "well">
+<h3>Location Info</div>
+    <ul>
+        <li>The Traveller</li>
+        <li>414 Liberty Island Road</li>
+        <li>Africa</li>
+        <li>Email: TheTraveller.african.tourism</li>
+    </ul>
+</div>
+<%end%>
+
+<!-- TOUR CATEGORY  SIDE BAR DISPLAY ON TOURS_INDEX & SHOW PAGE-->
+<% if params[:controller] =='tours' && params[:action]=='index' || params[:action] =='show' %>
+
+    <div class="list-group">
+     
+      <a href="#" class="list-group-item">Lodge Tours</a>
+      <a href="#" class="list-group-item">Local attractions</a>
+      <a href="#" class="list-group-item">Cultural Center</a>
+      
+    </div>
+<%end%>

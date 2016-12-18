@@ -1,0 +1,40 @@
+<h2>Add an Image</h2>
+<form>
+     <%= form_for ([@place,@gallary]) do |f| %>
+     
+    <% if @gallary.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@gallary.errors.count, "error") %> prohibited this tour from being saved:</h2>
+
+      <ul>
+      <% @gallary.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+    <div class="form-group">
+            
+            <div class="form-group">
+                <%= f.file_field :image %>
+                
+            </div>
+            <div class="form-group">
+                <%= f.text_field :name %>
+            </div>
+        
+            <div class="form-group">
+                <%= f.label 'SLink' %>
+            
+                <%= f.text_field :link%>
+            </div>
+        
+        <%= f.submit 'Add', class: 'btn btn-success' %>
+        <%= link_to 'Cancel',@gallary_path, class: 'btn btn-danger'%>
+        <%end%>
+    </div>
+        
+
+  
+</form>
