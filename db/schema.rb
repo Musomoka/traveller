@@ -11,13 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161216103816) do
+ActiveRecord::Schema.define(version: 20170615161230) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name",       limit: 255
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
   end
+
+  create_table "comments", force: :cascade do |t|
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+    t.text     "content",          limit: 65535
+    t.integer  "commentable_id",   limit: 4
+    t.string   "commentable_type", limit: 255
+  end
+
+  add_index "comments", ["commentable_type", "commentable_id"], name: "index_comments_on_commentable_type_and_commentable_id", using: :btree
 
   create_table "gallaries", force: :cascade do |t|
     t.string   "name",               limit: 255
@@ -45,6 +55,16 @@ ActiveRecord::Schema.define(version: 20161216103816) do
 
   add_index "guides", ["organisation_id"], name: "index_guides_on_organisation_id", using: :btree
   add_index "guides", ["user_id"], name: "index_guides_on_user_id", using: :btree
+
+  create_table "itineraries", force: :cascade do |t|
+    t.integer  "tour_id",    limit: 4
+    t.integer  "place_id",   limit: 4
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
+  add_index "itineraries", ["place_id"], name: "index_itineraries_on_place_id", using: :btree
+  add_index "itineraries", ["tour_id"], name: "index_itineraries_on_tour_id", using: :btree
 
   create_table "organisations", force: :cascade do |t|
     t.string   "name",              limit: 255
@@ -74,10 +94,13 @@ ActiveRecord::Schema.define(version: 20161216103816) do
   add_index "photos", ["place_id_id"], name: "index_photos_on_place_id_id", using: :btree
 
   create_table "places", force: :cascade do |t|
-    t.string   "name",       limit: 255
-    t.string   "gprs",       limit: 255
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.string   "name",        limit: 255
+    t.string   "gprs",        limit: 255
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.string   "category",    limit: 255
+    t.text     "description", limit: 65535
+    t.string   "url",         limit: 255
   end
 
   create_table "places_photos", force: :cascade do |t|
@@ -124,6 +147,8 @@ ActiveRecord::Schema.define(version: 20161216103816) do
   add_foreign_key "gallaries", "places"
   add_foreign_key "guides", "organisations"
   add_foreign_key "guides", "users"
+  add_foreign_key "itineraries", "places"
+  add_foreign_key "itineraries", "tours"
   add_foreign_key "photos", "places"
   add_foreign_key "places_photos", "photos"
   add_foreign_key "places_photos", "places"

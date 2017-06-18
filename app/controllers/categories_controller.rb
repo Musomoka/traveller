@@ -10,7 +10,7 @@ class CategoriesController < ApplicationController
        
        flash[:notice] = "Category successfully created" 
       
-     redirect_to (session['tour_edit_referrer'] || parents_path)
+     redirect_to (session['tour_edit_referrer'] || parent_path)
       
     else
        flash[:alert] = "Category unsuccesfully created" 

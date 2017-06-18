@@ -1,4 +1,5 @@
 
+
 <div id="tour-show-left">
     <p id="notice"><%= notice %></p>
     
@@ -15,7 +16,7 @@
     </div>
 </div>
     
-  <div id="tour-show-right">
+<div id="tour-show-right">
    <table>
     <h3>Tour Info</h3>
     <ul>
@@ -25,9 +26,23 @@
      
     </ul>
      
-    <%=link_to "Tour attractions", places_path, class: 'btn btn-success', target: 'blank'%>
+    <%=link_to "Tour attractions", tour_itineraries_url(@tour), class: 'btn btn-success'%>
+    <%=link_to "Add an Attraction", new_tour_itinerary_path(@tour), class: 'btn btn-success'%> 
   </table>
   
+  
+  
+  <div id="row">
+      
+     <%= render 'itineraries/itinerary'%>
+      
+      
+      
+  </div>
+      
+      
 </div>
+
+
 
     

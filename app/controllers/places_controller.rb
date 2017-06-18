@@ -1,6 +1,6 @@
 class PlacesController < ApplicationController
   before_action :set_place, only:[:show, :edit, :update, :destroy]
- 
+  before_action :set_comments
   
   
   def new
@@ -22,6 +22,7 @@ class PlacesController < ApplicationController
       end
   
   end
+  
   def edit
   end
 
@@ -58,20 +59,26 @@ class PlacesController < ApplicationController
 
   def show
    
-    @place = Place.find(params[:id])
-    
   end
-
+  
+  
+ #def photos
+  #   @photos = Place.find(params[:id]).photos
+ # end
 
 private
 
   def place_params
-        params.require(:place).permit(:name, :gprs,photos_attributes: [:name,:image,:place_id] )
+        params.require(:place).permit(:name, :gprs,:description,:url,:type, photos_attributes: [:name,:image,:place_id],comments: [:content, :commentable_id, :commentable_type] )
   end
   
    # Use callbacks to share common setup or constraints between actions.
     def set_place
       @place = Place.find(params[:id])
+     
     end
-  
+   def set_comments
+     @comments = @commentable.comments
+   
+   end
 end

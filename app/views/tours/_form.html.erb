@@ -1,37 +1,41 @@
 
 
 <%= form_for(@tour) do |f| %>
-  <% if @tour.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@tour.errors.count, "error") %> prohibited this tour from being saved:</h2>
-
-      <ul>
-      <% @tour.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="form-group">
-    <%= f.label :tour_name %><br>
-    <%= f.text_field :tour_name %>
-  </div>
-  <div class="form-group">
-    <%= f.label :description %><br>
-    <%= f.text_area :description %>
-  </div>
-  
- <div class="form-group">
-  <%= f.label :category %><br>
-    <%= f.select :category_id, Category.all.collect {|x| [x.name,x.id]}, 
-    {:include_blank => "Select One", class: 'form-control' }%><br>
-    <%= link_to "New Category", new_category_path, class: 'btn btn-primary'%>
-  </div>
-  
-  
-  <div class="actions">
-    <%= f.submit 'Submit', class: 'btn btn-primary' %>
-    <%= link_to 'Cancel',@tour_path, class: 'btn btn-primary'%>
-  </div>
-<% end %>
+        <% if @tour.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(@tour.errors.count, "error")%> prohibited this tour from being saved:</h2>
+      
+            <ul>
+            <% @tour.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+            </ul>
+          </div>
+        <% end %>
+      
+        <div class="form-group">
+          <%= f.label :tour_name %><br>
+          <%= f.text_field :tour_name %>
+        </div>
+        <div class="form-group">
+          <%= f.label :description %><br>
+          <%= f.text_area :description %>
+        </div>
+        
+       <div class="form-group">
+        <%= f.label :category %><br>
+          <%= f.select :category_id, Category.all.collect {|x| [x.name,x.id]}, 
+          {:include_blank => "Select One", class: 'form-control' }%><br>
+          <%= link_to "New Category", new_category_path, class: 'btn btn-primary'%>
+        </div>
+        <div class='form-group'>
+        <%=field_for :places do |place| %>
+          <%= f.select :place_id, Place.all.collect {|x| [x.name,x.id]}, 
+          {:include_blank => "Select One", class: 'form-control' }%><br>
+        <%= link_to "New Place", new_place_path, class: 'btn btn-primary'%>
+        </div>
+        <div class="actions">
+          <%= f.submit 'Submit', class: 'btn btn-primary' %>
+          <%= link_to 'Cancel',@tour_path, class: 'btn btn-primary'%>
+        </div>
+<%end%>

@@ -65,7 +65,10 @@ class PhotosController < ApplicationController
       @photo.destroy
       redirect_to place_photos_url, notice: 'Photo was successfully destroyed.' 
      end
+  def images
+    @photos = @place.photos
   
+  end
     private
       # Use callbacks to share common setup or constraints between actions.
       def set_photo

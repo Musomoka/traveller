@@ -91,7 +91,7 @@
                     
                           <% if flash[:notice] %>
                               <div class= "alert alert-success">
-                              <%=flash[:notice]%>
+                                <%=flash[:notice]%>
                                
                               </div>
                           <%end%>
@@ -102,11 +102,11 @@
                              <div class= "alert alert-danger">
                               <%=flash[:alert]%>
                              
-                          </div>
+                              </div>
                         <%end%>
                         
                         
-                      <%= yield %>
+                      <%=yield%>
                   </div>
                   
                   <div class = "col-md-4">
