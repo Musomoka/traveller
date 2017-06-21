@@ -22,21 +22,22 @@ Rails.application.routes.draw do
   root 'tours#index'
   
   # RESOURCES ROUTES
-resources :comments
+resources :comments do
+  resources :comments
+end
+
   resources :categories
   resources :guides
   devise_for :users
   
   resources :tours do
-   resources :itineraries
+    resources :itineraries
     resources :comments
   end
   
   resources :places do
     resources :comments
     resources :photos
-   
-  
 end
  
   resources :organisations

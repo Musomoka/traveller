@@ -1,6 +1,6 @@
 class PlacesController < ApplicationController
   before_action :set_place, only:[:show, :edit, :update, :destroy]
-  before_action :set_comments
+ 
   
   
   def new
@@ -77,8 +77,5 @@ private
       @place = Place.find(params[:id])
      
     end
-   def set_comments
-     @comments = @commentable.comments
-   
-   end
+  
 end

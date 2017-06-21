@@ -35,13 +35,14 @@
       </table>
     </div>
       
-            
-            
-            
-    <div id="comments">
-      <%= render partial: 'comments/comments', locals: {commentable: @place}%>
-      <%= render 'comment/new'%>
-    </div>
+    <%= form_for [@place, Comment.new] do |f| %>
+    <%= f.text_area :content, placeholder: "Add a comment" %><br/>
+    <%= f.submit "Add Comment" %>
+    <% end %>
+
+    <ul>
+      <%= render(partial: 'comments/comments', collection: @place.comments) %>
+    </ul>
 </div> 
 
 

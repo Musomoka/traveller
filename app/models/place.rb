@@ -6,5 +6,5 @@ class Place < ActiveRecord::Base
     accepts_nested_attributes_for :photos, :allow_destroy => true
   
     has_many :comments, :as => :commentable
-    accepts_nested_attributes_for :comments, :allow_destroy => true
+   
 end

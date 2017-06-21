@@ -21,7 +21,7 @@
     <h3>Tour Info</h3>
     <ul>
       <li><strong>Category:</strong> <%=@tour.tour_name%></li>
-      <li><strong>Description:</strong><%=@tour.tour_name%> </li>
+      <li><strong>Description:</strong><%=@tour.description%> </li>
       <li><strong>Location:</strong> Windhoek,Namibia></li>
      
     </ul>
@@ -40,6 +40,14 @@
       
   </div>
       
+    <%= form_for [@tour, Comment.new] do |f| %>
+    <%= f.text_area :content, placeholder: "Add a comment" %><br/>
+    <%= f.submit "Add Comment" %>
+    <% end %>
+
+    <ul>
+      <%= render(partial: 'comments/comments', collection: @tour.comments) %>
+    </ul>
       
 </div>
 
