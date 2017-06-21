@@ -1,0 +1,10 @@
+<li>
+  <%= comments.content %> -
+  <small>Submitted <%= time_ago_in_words(comments.created_at) %> ago</small>
+
+  <%= form_for [comments, Comment.new] do |f| %>
+      <%= f.text_area :content, placeholder: "Add a Reply" %><br/>
+      <%= f.submit "Reply"  %>
+      <% end %>
+
+</li>

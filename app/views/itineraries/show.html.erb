@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Tour:</strong>
+  <%= @itinerary.tour %>
+</p>
+
+<p>
+  <strong>Place:</strong>
+  <%= @itinerary.place %>
+</p>
+
+
+<%= link_to 'Edit', edit_itinerary_path(@itinerary) %> |
+<%= link_to 'Back', itineraries_path %>
+
+  <%= form_for [@itinerary, Comment.new] do |f| %>
+    <%= f.text_area :content, placeholder: "Add a comment" %><br/>
+    <%= f.submit "Add Comment" %>
+  <% end %>
+
+    <ul>
+      <%= render(partial: 'comments/comments', collection: @itinary.comments) %>
+    </ul>

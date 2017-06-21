@@ -1,0 +1,27 @@
+<%= form_for([@tour, @itinerary]) do |f| %>
+  <% if @itinerary.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@itinerary.errors.count, "error") %> prohibited this itinerary from being saved:</h2>
+
+      <ul>
+      <% @itinerary.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%=@itinerary.tour.tour_name%>
+  </div>
+  <div class="field">
+    <div class="form-group">
+  <%= f.label :'Attraction Name' %><br>
+    <%= f.select :place_id, Place.all.collect {|x| [x.name,x.id]}, 
+    {:include_blank => "Select One", class: 'form-control' }%>
+    <%= link_to "Add New", new_place_path, class: 'btn btn-primary btn-sm'%>
+  
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

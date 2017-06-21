@@ -1,0 +1,35 @@
+
+
+
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% if @Part_pics.nil?%>
+       <h3>No Images</h3>
+       
+      
+    <%else%>
+        
+          <%@part_pics.each do |photo| %>
+          
+            <tr>
+              <td><%=image_tag(photo.image.url(:thumb)) %> </td>
+              <td><%= photo.name %></td>
+              
+            
+            </tr>
+          <% end %>
+    <%end%>
+  </tbody>
+</table>
+
+<br>
+
+
