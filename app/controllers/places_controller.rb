@@ -5,6 +5,7 @@ class PlacesController < ApplicationController
   
   def new
    @place = Place.new
+   @address = @place.address.build
      
   end
 
@@ -61,7 +62,9 @@ class PlacesController < ApplicationController
    
   end
   
-  
+ def address
+  @address
+ end
  #def photos
   #   @photos = Place.find(params[:id]).photos
  # end
@@ -69,7 +72,7 @@ class PlacesController < ApplicationController
 private
 
   def place_params
-        params.require(:place).permit(:name, :gprs,:description,:url,:type, photos_attributes: [:name,:image,:place_id],comments: [:content, :commentable_id, :commentable_type] )
+        params.require(:place).permit(:name, :gprs,:description,:url,:type, photos_attributes: [:name,:image,:place_id],comments: [:content, :commentable_id, :commentable_type], addresses_attributes: [:place_id,:phy_address1,:phy_address2, :phy_address3, :region, :city, :country] )
   end
   
    # Use callbacks to share common setup or constraints between actions.

@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  place_id: 
+  phy_address1: MyString
+  phy_address2: MyString
+  phy_address3: MyString
+  region: MyString
+  city: MyString
+  country: MyString
+
+two:
+  place_id: 
+  phy_address1: MyString
+  phy_address2: MyString
+  phy_address3: MyString
+  region: MyString
+  city: MyString
+  country: MyString
