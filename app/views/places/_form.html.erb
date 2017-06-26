@@ -40,33 +40,37 @@
       <%= f.label :gprs %><br>
       <%= f.text_area :gprs %>
     </div>
-    <p>Adrress</p>
+    <h3>Adrress</h3>
+    
     
    <%= f.fields_for(:address) do |address| %>
-        <div class="form-group">
-          <%= address.label 'Street Address: ' %><br>
-          <%= address.text_field :phy_address1 %>
-        </div>
-         <div class="form-group">
-          <%= address.label 'City:' %><br>
-          <%= address.text_field :city %>
-        </div>
-        <div class="form-group">
-          <%= address.label 'Region:' %><br>
-          <%= address.text_field :region %>
-        </div>
-         <div class="form-group">
-          <%= address.label 'Country:' %><br>
-          <%= address.text_field :country %>
-        </div>
-         <div class="form-group">
-          <%= address.label 'Street Address: ' %><br>
-          <%= address.text_field :phy_address2 %>
-        </div>
-         <div class="form-group">
-          <%= address.label 'Street Address: ' %><br>
-          <%= address.text_field :phy_address3 %>
-        </div>
+     <div class="form-group">
+         <%= address.label 'Country:' %><br>
+         <%= address.country_select :country %>
+     </div>
+     <div class="form-group">
+       <%= address.label 'Plot/Erf Number: ' %>
+       <%= address.text_field :phy_address1 %>
+     </div>
+      <div class="form-group">
+       <%= address.label 'Street Name: ' %>
+       <%= address.text_field :phy_address2 %>
+     </div>
+      <div class="form-group">
+       <%= address.label 'Surburb: ' %>
+       <%= address.text_field :phy_address3 %>
+     </div>
+      <div class="form-group">
+       <%= address.label 'Region: ' %>
+       <%= address.text_field :region %>
+     </div>
+      <div class="form-group">
+       <%= address.label 'City: ' %>
+       <%= address.text_field :city %>
+     </div>
+    
+      
+     
    
     <%end%>
     <div class="actions">

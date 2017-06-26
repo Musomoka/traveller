@@ -34,6 +34,30 @@
         </div>
       </table>
     </div>
+    <div class="address">
+       <p>Country: </p>
+         <%= address.country_select :country %>
+     </div>
+     <div class="form-group">
+       <%= address.label 'Plot/Erf Number: ' %>
+       <%= address.text_field :phy_address1 %>
+     </div>
+      <div class="form-group">
+       <%= address.label 'Street Name: ' %>
+       <%= address.text_field :phy_address2 %>
+     </div>
+      <div class="form-group">
+       <%= address.label 'Surburb: ' %>
+       <%= address.text_field :phy_address3 %>
+     </div>
+      <div class="form-group">
+       <%= address.label 'Region: ' %>
+       <%= address.text_field :region %>
+     </div>
+      <div class="form-group">
+       <%= address.label 'City: ' %>
+       <%= address.text_field :city %>
+     </div>
       
     <%= form_for [@place, Comment.new] do |f| %>
     <%= f.text_area :content, placeholder: "Add a comment" %><br/>

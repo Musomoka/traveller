@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 # bootstrap
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'sass-rails', '>= 3.2'
-
+gem 'country_select', '~> 3.0'
 # HIRB seciont
 gem 'bower-rails'
 gem 'pry-rails', :group => :development

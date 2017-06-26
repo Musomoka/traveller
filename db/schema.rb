@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170626081748) do
+ActiveRecord::Schema.define(version: 20170626092631) do
 
   create_table "addresses", force: :cascade do |t|
     t.integer  "place_id",     limit: 4
@@ -23,6 +23,8 @@ ActiveRecord::Schema.define(version: 20170626081748) do
     t.string   "country",      limit: 255
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
+    t.integer  "latitude",     limit: 4
+    t.integer  "longatude",    limit: 4
   end
 
   add_index "addresses", ["place_id"], name: "index_addresses_on_place_id", using: :btree
